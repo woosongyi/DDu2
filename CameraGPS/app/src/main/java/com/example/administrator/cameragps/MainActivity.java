@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-
+//카메라+GPS
 public class MainActivity extends AppCompatActivity {
     private static final int CAMERA_CAPTURE = 0;
     File path;
