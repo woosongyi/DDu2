@@ -25,6 +25,7 @@ public class PictureWriter {
     public void addData(Picture picture){
         try {
            fos.write(picture.toString());
+            fos.write("\r\n");
         } catch (IOException e) {
             e.printStackTrace();
         }

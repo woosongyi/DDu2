@@ -23,11 +23,33 @@ public class Picture {
     String address; //주소
     String path; //경로
 
-    public Picture(double lat, double lon, String address){
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public void setToday(Date today) {
+        this.today = today;
+    }
+
+    public Picture(double lat, double lon, String address, String path){
         create_date();
         this.address = address;
         this.lat = lat;
         this.lon = lon;
+        //path.getPath() + "/" + today + ".jpg"
+        this.path = path+this.name+".jpg";
     }
 
 
@@ -39,7 +61,7 @@ public class Picture {
 
     @Override
     public String toString() {
-        String s = name+"-"+today+"-"+lat+"-"+lon+"-"+address+"\n";
+        String s = name+"&"+today+"&"+lat+"&"+lon+"&"+address+"&"+path; //파일이름,날짜,위도,경도,주소,경로
         return s;
     }
 

@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(path.getPath() + "/" + today + ".jpg")));
                 startActivityForResult(i, CAMERA_CAPTURE); //이미지 캡쳐 엑티비티를 실행한다.
 
-                Picture picture = new Picture(lat,lon,address); //사진객체만들기
+                Picture picture = new Picture(lat,lon,address,path.getPath() + "/"); //사진객체만들기
                 PictureWriter pw = new PictureWriter(path.getPath() + "/" +"result.txt");
                 pw.addData(picture);
                 pw.close();

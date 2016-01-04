@@ -8,6 +8,7 @@ import android.widget.GridView;
 import com.example.administrator.cameragps.Picture;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 ImageAdapter myImageAdapter;
@@ -20,25 +21,19 @@ ImageAdapter myImageAdapter;
         gridview.setAdapter(myImageAdapter);
 
         String ExternalStorageDirectoryPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String targetPath = ExternalStorageDirectoryPath +"/ddu2";
+        String PicturePath = ExternalStorageDirectoryPath +"/ddu2/result.txt";
+        PictureReader pr = new PictureReader(PicturePath);
+        ArrayList<Picture> pr_list= pr.getData();
 
+      System.out.println("정렬하기 전 : " + pr_list);
 
+      quickSort s = new quickSort(); //정렬클래스
+      s.Qsort(pr_list,0,pr_list.size()-1); //정렬시작
 
-        File targetDirectory = new File(targetPath);
-        System.out.println("최종 지정된 경로 : "+targetDirectory);
-        File[] files = targetDirectory.listFiles();
-        System.out.println("폴더인가? : "+targetDirectory.isDirectory());
-        try
-        {
-            String[] list = targetDirectory.list();
-            System.out.println("list 의 사이즈 : " +list);
-        }catch(Exception e){System.out.println(e.toString());}
-
-        System.out.println(files);
-        for(File file: files){
-
-            myImageAdapter.add(file.getAbsolutePath());
-        }
-
+      System.out.println("정렬한 후 : " + pr_list);
+      //가장 최근에 찍은 날짜 순서대로(역순) 40초->30초->20초
+      for(Picture picture: pr_list){ //정렬후 앨범그리드
+        myImageAdapter.add(picture.getPath());
+      }
     }
 }

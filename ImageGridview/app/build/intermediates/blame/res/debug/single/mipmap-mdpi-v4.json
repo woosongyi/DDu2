@@ -4,12 +4,28 @@
         "source": "C:\\Users\\Administrator\\Documents\\DDu2\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\sample2.jpg"
     },
     {
+        "merged": "D:\\DDu2_Git\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\sample4.jpg",
+        "source": "D:\\DDu2_Git\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\sample4.jpg"
+    },
+    {
+        "merged": "D:\\DDu2_Git\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\sample1.jpg",
+        "source": "D:\\DDu2_Git\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\sample1.jpg"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Documents\\DDu2\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\sample4.jpg",
         "source": "C:\\Users\\Administrator\\Documents\\DDu2\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\sample4.jpg"
     },
     {
+        "merged": "D:\\DDu2_Git\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\sample3.jpg",
+        "source": "D:\\DDu2_Git\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\sample3.jpg"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Documents\\DDu2\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\sample1.jpg",
         "source": "C:\\Users\\Administrator\\Documents\\DDu2\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\sample1.jpg"
+    },
+    {
+        "merged": "D:\\DDu2_Git\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\sample2.jpg",
+        "source": "D:\\DDu2_Git\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\sample2.jpg"
     },
     {
         "merged": "C:\\Users\\Administrator\\Documents\\DDu2\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
@@ -18,5 +34,9 @@
     {
         "merged": "C:\\Users\\Administrator\\Documents\\DDu2\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\sample3.jpg",
         "source": "C:\\Users\\Administrator\\Documents\\DDu2\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\sample3.jpg"
+    },
+    {
+        "merged": "D:\\DDu2_Git\\ImageGridview\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "D:\\DDu2_Git\\ImageGridview\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     }
 ]
