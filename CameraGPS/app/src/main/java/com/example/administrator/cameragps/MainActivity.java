@@ -43,13 +43,10 @@ public class MainActivity extends AppCompatActivity {
     double lat;//위도
     double lon;//경도
     String address;// 주소
-    Context Activitycontext;
-
     FileWriter fout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.Activitycontext=this.getApplication().getApplicationContext();
         setContentView(R.layout.activity_main);
         Button captureButton = (Button) findViewById(R.id.capture);
         stateTv = (TextView) findViewById(R.id.stateView);
@@ -57,9 +54,22 @@ public class MainActivity extends AppCompatActivity {
         networkTv = (TextView) findViewById(R.id.networkView);
         resultTv = (TextView)findViewById(R.id.resultView);
 
-        coder= new Geocoder(this);
+        //****위치정보****
+        coder = new Geocoder(this);
+        // 2. 위치 관리자 얻어오기
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         // 3. 제공가능한 서비스 불러오기
+
+        List<String> providers = manager.getAllProviders();
+        String str = "";
+        for (int i = 0; i < providers.size(); i++) {
+
+            str += "위치 제공자 : " + providers.get(i) + " 의 상태 : " +
+                    manager.isProviderEnabled(providers.get(i)) + "\n";
+        }
+
+        stateTv.setText(str);
+        //4. 리스너 등록
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
@@ -85,14 +95,27 @@ public class MainActivity extends AppCompatActivity {
                 calendar = Calendar.getInstance();
                 java.util.Date date = calendar.getTime();
                 today = (new SimpleDateFormat("yyyyMMddHHmmss").format(date));
-                i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(path.getPath() + "/" + today + ".jpg")));
+                i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(path.getPath() + "/" + today+".jpg")));
                 startActivityForResult(i, CAMERA_CAPTURE); //이미지 캡쳐 엑티비티를 실행한다.
 
-                Picture picture = new Picture(lat,lon,address); //사진객체만들기
-                PictureWriter pw = new PictureWriter(path.getPath() + "/" +"result.txt");
-                pw.addData(picture);
-                pw.close();
 
+                Picture picture = new Picture(today,lat,lon,address); //사진객체만들기
+                //파일저장
+                try {
+                    fout = new FileWriter(path.getPath() + "/" +"result.txt",true);
+                   // System.out.println(path.getPath());
+                    //System.out.println(picture.toString());
+                    fout.write(picture.toString());
+
+                    fout.write("\r\n");
+                   // System.out.print("파일입력");
+                    fout.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+              //  System.out.println("날짜:" + today + "위도:" + lat + "경도:" + lon + "주소:" + address);
             }
         });
 
